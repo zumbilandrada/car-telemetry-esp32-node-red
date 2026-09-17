@@ -1,0 +1,8 @@
+# Node-RED dependencies
+node_modules/
+.config.nodes.json
+.config.json
+
+# OS files
+.DS_Store
+Thumbs.db
