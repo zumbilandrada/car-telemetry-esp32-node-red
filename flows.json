@@ -1,0 +1,363 @@
+[
+    {
+        "id": "9fd4b746967fef45",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7a65c27e0d2b910c",
+        "type": "group",
+        "z": "9fd4b746967fef45",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#767676"
+        },
+        "nodes": [],
+        "x": 274,
+        "y": 139,
+        "w": 40,
+        "h": 40
+    },
+    {
+        "id": "c1245e21aa9616f1",
+        "type": "group",
+        "z": "9fd4b746967fef45",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#767676"
+        },
+        "nodes": [],
+        "x": 494,
+        "y": 139,
+        "w": 40,
+        "h": 40
+    },
+    {
+        "id": "4313494af9131ad4",
+        "type": "group",
+        "z": "9fd4b746967fef45",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#767676"
+        },
+        "nodes": [],
+        "x": 10,
+        "y": 130,
+        "w": 40,
+        "h": 40
+    },
+    {
+        "id": "36b962e4e666eecf",
+        "type": "function",
+        "z": "9fd4b746967fef45",
+        "name": "function 1",
+        "func": "msg.payload = {\n    id: \"esp32_car_01\",\n    name: \"ESP32 Car\",\n    lat: msg.payload.gps.lat,\n    lon: msg.payload.gps.lon,\n    speed: msg.payload.speed,\n    icon: \"car\",\n    layer: \"Vehicul\"\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 580,
+        "wires": [
+            [
+                "d08998809f4e2389"
+            ]
+        ]
+    },
+    {
+        "id": "d08998809f4e2389",
+        "type": "worldmap",
+        "z": "9fd4b746967fef45",
+        "name": "",
+        "lat": "",
+        "lon": "",
+        "zoom": "",
+        "layer": "",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "show",
+        "layers": "show",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "false",
+        "coords": "false",
+        "showgrid": "false",
+        "showruler": "false",
+        "allowFileDrop": "false",
+        "path": "/worldmap",
+        "overlist": "DR,CO,RA,DN",
+        "maplist": "OSMG,OSMC,EsriC,EsriS,UKOS",
+        "mapname": "",
+        "mapurl": "",
+        "mapopt": "",
+        "mapwms": false,
+        "x": 780,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "bfee8445f58c2eb7",
+        "type": "json",
+        "z": "9fd4b746967fef45",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 310,
+        "y": 580,
+        "wires": [
+            [
+                "36b962e4e666eecf",
+                "f0b314c3d825a24b",
+                "c1b1cf898cded984",
+                "3e52a924d704737b"
+            ]
+        ]
+    },
+    {
+        "id": "dca0a9209f144626",
+        "type": "ui_gauge",
+        "z": "9fd4b746967fef45",
+        "name": "",
+        "group": "6f0ab0b38718e9e5",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "RPM",
+        "label": "RPM",
+        "format": "",
+        "min": 0,
+        "max": "5000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 350,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "119339925b7285b3",
+        "type": "ui_gauge",
+        "z": "9fd4b746967fef45",
+        "name": "",
+        "group": "6f0ab0b38718e9e5",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Engine Temp",
+        "label": "°C",
+        "format": "",
+        "min": 0,
+        "max": "120",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 590,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "4200ce63559ffce5",
+        "type": "ui_gauge",
+        "z": "9fd4b746967fef45",
+        "name": "",
+        "group": "6f0ab0b38718e9e5",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Speed",
+        "label": "km/h",
+        "format": "",
+        "min": 0,
+        "max": "140",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 90,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "93895dc8e563b231",
+        "type": "mqtt in",
+        "z": "9fd4b746967fef45",
+        "name": "",
+        "topic": "autonoma/telemetrie/esp32_car_01",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "1a109a62c948dcb6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 500,
+        "wires": [
+            [
+                "bfee8445f58c2eb7"
+            ]
+        ]
+    },
+    {
+        "id": "f0b314c3d825a24b",
+        "type": "function",
+        "z": "9fd4b746967fef45",
+        "name": "function 2",
+        "func": "msg.payload = Number(msg.payload.speed);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 140,
+        "y": 360,
+        "wires": [
+            [
+                "4200ce63559ffce5"
+            ]
+        ]
+    },
+    {
+        "id": "c1b1cf898cded984",
+        "type": "function",
+        "z": "9fd4b746967fef45",
+        "name": "function 3",
+        "func": "msg.payload = Number(msg.payload.rpm);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 340,
+        "wires": [
+            [
+                "dca0a9209f144626"
+            ]
+        ]
+    },
+    {
+        "id": "3e52a924d704737b",
+        "type": "function",
+        "z": "9fd4b746967fef45",
+        "name": "function 4",
+        "func": "msg.payload = Number(msg.payload.engine_temp);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 340,
+        "wires": [
+            [
+                "119339925b7285b3"
+            ]
+        ]
+    },
+    {
+        "id": "6f0ab0b38718e9e5",
+        "type": "ui_group",
+        "name": "Telemetry",
+        "tab": "c21111edd1369ca6",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1a109a62c948dcb6",
+        "type": "mqtt-broker",
+        "name": "autonoma/telemetrie/esp32_car_01",
+        "broker": "broker.hivemq.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "c21111edd1369ca6",
+        "type": "ui_tab",
+        "name": "Car",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "1fe2447fd1550823",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-web-worldmap": "5.8.1",
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]

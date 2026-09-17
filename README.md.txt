@@ -14,3 +14,8 @@ A real-time IoT telemetry project designed to monitor vehicle metrics and locati
 * **Hardware & Firmware:** ESP32 programmed via **Arduino IDE**.
 * **Communication Protocol:** **MQTT Broker** (for transmitting data from ESP32 to Node-RED).
 * **Software / Backend:** [Node-RED](https://nodered.org/) with Node-RED Dashboard.
+
+
+## Project Structure
+* `esp32_firmware/` - The Arduino code for the ESP32.
+* `flow.json` - The exported Node-RED flow containing the gauges and map.
