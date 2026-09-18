@@ -3,8 +3,8 @@
 #include <ArduinoJson.h>
 
 // Datele tale Wi-Fi
-const char* ssid = "DIGI-p96p";
-const char* password = "xXKV4655";
+const char* ssid = "Vodafone-5A8E";
+const char* password = "3h4paCGqNmt3UP6G";
 
 // Broker MQTT public pentru teste
 const char* mqtt_server = "broker.hivemq.com";
